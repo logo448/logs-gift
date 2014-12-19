@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Speech.Synthesis;
+using System.Media;
+using System.IO;
 
 namespace Logans_Gift
 {
@@ -83,16 +85,28 @@ namespace Logans_Gift
             // create a tuple that holds the user's two nick names
             Tuple<string, string> user_nick_names = get_nick_name(user_name);
 
-            // create a variable to hold the greeting message
-            string greeting_msg = string.Format("Hi, {0}. It's Snow Buddy!", user_nick_names.Item1);
-
             // display the greeting in label 2
-            label2.Text = greeting_msg;
+            label2.Text = string.Format("Hi, {0}. It's Snow Buddy!", user_nick_names.Item1);
 
-            // speak the greeting
-            _synth.Speak(greeting_msg);
+            // initialize a variable that will hold the path to the audio greeting resource
+            UnmanagedMemoryStream greeting_audio = null;
+
+            // checks who is using the program and which greeting to play
+            switch (user_name)
+            {
+                case "jeff":
+                    greeting_audio = Properties.Resources.snow_papa;
+                    break;
+                case "susie":
+                    greeting_audio = Properties.Resources.snow_angel;
+                    break;
+                case "maddie":
+                    greeting_audio = Properties.Resources.snow_monster;
+                    break;
+            }
+            // plays an audio clip
+            SoundPlayer player = new SoundPlayer(greeting_audio);
+            player.Play();
         }
-
-
     }
 }
