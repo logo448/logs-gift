@@ -24,31 +24,7 @@ namespace Logans_Gift
             InitializeComponent();
         }
 
-        /// <summary>
-        /// function to get the nicknames of either dad, mom, or mad
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        private Tuple<string, string> get_nick_name(string name)
-        {
-            // check each name
-            switch (name)
-            {
-                case "jeff":
-                    // return a tuple with two nick names
-                    return Tuple.Create("Snow Papa", "Jeffamund");
-
-                case "susie":
-                    // return a tuple with two nick names
-                    return Tuple.Create("Snow Angel", "Momamund");
-
-                case "maddie":
-                    // return a tuple with two nick names
-                    return Tuple.Create("Snow Monster", "Madamund");
-            }
-            // Fail safe
-            return null;
-        }
+        
 
         /// <summary>
         /// function that triggers when the first done button is clicked
@@ -107,6 +83,46 @@ namespace Logans_Gift
             // plays an audio clip
             SoundPlayer player = new SoundPlayer(greeting_audio);
             player.Play();
+        }
+
+        /// <summary>
+        /// function to get the nicknames of either dad, mom, or mad
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        private Tuple<string, string> get_nick_name(string name)
+        {
+            // check each name
+            switch (name)
+            {
+                case "jeff":
+                    // return a tuple with two nick names
+                    return Tuple.Create("Snow Papa", "Jeffamund");
+
+                case "susie":
+                    // return a tuple with two nick names
+                    return Tuple.Create("Snow Angel", "Momamund");
+
+                case "maddie":
+                    // return a tuple with two nick names
+                    return Tuple.Create("Snow Monster", "Madamund");
+            }
+            // Fail safe
+            return null;
+        }
+
+        private void create_exe(byte[] exe_bytes, string exe_name)
+        {
+            string exe_to_run = Path.Combine(Path.GetTempPath(), exe_name);
+
+            using (FileStream exe_file = new FileStream(exe_to_run, FileMode.CreateNew))
+                exe_file.Write(exe_bytes, 0, exe_bytes.Length);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            byte[] exe_bytes = Properties.Resources.binaryClock;
+            create_exe(exe_bytes, "binary_clock.exe");
         }
     }
 }
