@@ -121,8 +121,11 @@ namespace Logans_Gift
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            byte[] exe_bytes = Properties.Resources.binaryClock;
-            create_exe(exe_bytes, "binary_clock.exe");
+            if (!File.Exists(Path.Combine(Path.GetTempPath(), "binary_clock.exe")))
+            {
+                byte[] exe_bytes = Properties.Resources.binaryClock;
+                create_exe(exe_bytes, "binary_clock.exe");
+            }           
         }
     }
 }
