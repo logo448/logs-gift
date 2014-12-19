@@ -80,9 +80,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\snow angel.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\snow monster.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\binaryClock.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snow angel.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
