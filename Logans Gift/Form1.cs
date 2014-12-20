@@ -169,6 +169,30 @@ namespace Logans_Gift
                 // start the binary clock .exe
                 System.Diagnostics.Process.Start(Path.Combine(Path.GetTempPath(), "binary_clock.exe"));
             }
+
+            // check to see if the holy balls radio button is checked
+            if (radioButton5.Checked)
+            {
+                // call the holy balls function with the value from the number box as an argument
+                holy_balls((int)numericUpDown1.Value);
+            }
+        }
+
+        /// <summary>
+        /// function that says holy balls x amount of times
+        /// </summary>
+        /// <param name="iterations"></param>
+        private void holy_balls(int iterations)
+        {
+            // loop x amount of times
+            for (int i = 0; i < iterations; i++)
+            {
+                // increment the speech rate
+                _synth.Rate = i;
+
+                // say holly balls
+                _synth.Speak("holy balls");
+            }
         }
     }
 }
