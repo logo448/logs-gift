@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Media;
 using System.IO;
+using System.Threading;
 
 namespace Logans_Gift
 {
@@ -64,6 +65,9 @@ namespace Logans_Gift
             // display the greeting in label 2
             label2.Text = string.Format("Hi, {0}. It's Snow Buddy!", user_nick_names.Item1);
 
+            // update the form so the message get's printed
+            this.Update();
+
             // initialize a variable that will hold the path to the audio greeting resource
             UnmanagedMemoryStream greeting_audio = null;
 
@@ -82,7 +86,16 @@ namespace Logans_Gift
             }
             // plays an audio clip
             SoundPlayer player = new SoundPlayer(greeting_audio);
-            player.Play();
+            player.Play();    
+
+            // sleep before controls become visible
+            Thread.Sleep(3000);
+
+            // make the what do youw want to label visible
+            label3.Visible = true;
+
+            // make the groupbox visible
+            groupBox1.Visible = true;
         }
 
         /// <summary>
@@ -140,7 +153,22 @@ namespace Logans_Gift
                 byte[] exe_bytes = Properties.Resources.binaryClock;
                 // calls a function that creates the binary_clock.exe
                 create_exe(exe_bytes, "binary_clock.exe");
-            }           
+            }
+        }
+
+        /// <summary>
+        /// function that triggers when second done button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // check to see if the binary clock radio button is checked
+            if (radioButton4.Checked)
+            {
+                // start the binary clock .exe
+                System.Diagnostics.Process.Start(Path.Combine(Path.GetTempPath(), "binary_clock.exe"));
+            }
         }
     }
 }
