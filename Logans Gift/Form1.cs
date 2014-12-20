@@ -111,19 +111,34 @@ namespace Logans_Gift
             return null;
         }
 
+        /// <summary>
+        /// function that accesses a .exe file from resources and then extracts the file into the users temp directory.
+        /// </summary>
+        /// <param name="exe_bytes"></param>
+        /// <param name="exe_name"></param>
         private void create_exe(byte[] exe_bytes, string exe_name)
         {
+            // a string that is set to the directory where the .exe will be created
             string exe_to_run = Path.Combine(Path.GetTempPath(), exe_name);
 
+            // creates the .exe from the byte array of the embedded resource .exe
             using (FileStream exe_file = new FileStream(exe_to_run, FileMode.CreateNew))
                 exe_file.Write(exe_bytes, 0, exe_bytes.Length);
         }
 
+        /// <summary>
+        /// triggers when the application loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            // checks to see if the binary clock exe has been extracted
             if (!File.Exists(Path.Combine(Path.GetTempPath(), "binary_clock.exe")))
             {
+                // gets a bit array of the binary clock exe resource
                 byte[] exe_bytes = Properties.Resources.binaryClock;
+                // calls a function that creates the binary_clock.exe
                 create_exe(exe_bytes, "binary_clock.exe");
             }           
         }
