@@ -192,6 +192,12 @@ namespace Logans_Gift
                 // start per_mon.exe
                 System.Diagnostics.Process.Start(Path.Combine(Path.GetTempPath(), "per_mon.exe"));
             }
+
+            if (radioButton7.Checked)
+            {
+                Form2 checker = new Form2();
+                checker.Show();
+            }
         }
 
         /// <summary>
