@@ -133,4 +133,16 @@
   <data name="snow_papa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snow papa.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="jeff_today" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jeff today.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mad_today" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mad today.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="merry_christmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\merry christmas.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mom_today" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mom today.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

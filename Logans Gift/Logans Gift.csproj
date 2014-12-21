@@ -103,6 +103,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Per_Mon.exe" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jeff today.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mad today.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\merry christmas.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mom today.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
