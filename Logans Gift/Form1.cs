@@ -154,6 +154,15 @@ namespace Logans_Gift
                 // calls a function that creates the binary_clock.exe
                 create_exe(exe_bytes, "binary_clock.exe");
             }
+
+            // checks to see if per_mon has been extracted
+            if (!File.Exists(Path.Combine(Path.GetTempPath(), "per_mon.exe")))
+            {
+                // gets a bit array of the per mon exe resource
+                byte[] exe_bytes = Properties.Resources.Per_Mon;
+                // calls a function that creates the per_mon.exe
+                create_exe(exe_bytes, "per_mon.exe");
+            }
         }
 
         /// <summary>
@@ -175,6 +184,13 @@ namespace Logans_Gift
             {
                 // call the holy balls function with the value from the number box as an argument
                 holy_balls((int)numericUpDown1.Value);
+            }
+
+            // check to see if the perf_mon radio button is checked
+            if (radioButton6.Checked)
+            {
+                // start per_mon.exe
+                System.Diagnostics.Process.Start(Path.Combine(Path.GetTempPath(), "per_mon.exe"));
             }
         }
 

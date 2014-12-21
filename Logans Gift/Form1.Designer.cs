@@ -158,10 +158,10 @@
             this.radioButton6.AutoSize = true;
             this.radioButton6.Location = new System.Drawing.Point(6, 104);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(222, 24);
+            this.radioButton6.Size = new System.Drawing.Size(244, 24);
             this.radioButton6.TabIndex = 2;
             this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Got something to auction?";
+            this.radioButton6.Text = "Need to monitor your system?";
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // button2

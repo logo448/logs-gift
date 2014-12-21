@@ -121,6 +121,9 @@
   <data name="binaryClock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\binaryClock.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Per_Mon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Per_Mon.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="snow_angel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snow angel.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
