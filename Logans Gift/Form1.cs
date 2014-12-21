@@ -17,20 +17,22 @@ namespace Logans_Gift
 {
     public partial class Form1 : Form
     {
+        #region global set up
         // create a global speech synthesizer object
         static SpeechSynthesizer _synth = new SpeechSynthesizer();
 
-
+        // create a global variable that holds the name of the current user
         static string user_name;
 
+        // creates a tuple that holds the nick names of the current user
         static Tuple<string, string> user_nick_names;
+        #endregion
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        
 
         /// <summary>
         /// function that triggers when the first done button is clicked
@@ -40,6 +42,7 @@ namespace Logans_Gift
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            #region get user name
             // check to see if the jeff radio button is checkded
             if (radioButton1.Checked == true)
             {
@@ -60,16 +63,19 @@ namespace Logans_Gift
                 // sets the user name to maddie
                 user_name = "maddie";
             }
+            #endregion
 
             // create a tuple that holds the user's two nick names
             user_nick_names = get_nick_name(user_name);
 
+            #region greeting
             // display the greeting in label 2
             label2.Text = string.Format("Hi, {0}. It's Snow Buddy!", user_nick_names.Item1);
 
             // update the form so the message get's printed
             this.Update();
 
+            #region get greeting sound clip
             // initialize a variable that will hold the path to the audio greeting resource
             UnmanagedMemoryStream greeting_audio = null;
 
@@ -86,10 +92,12 @@ namespace Logans_Gift
                     greeting_audio = Properties.Resources.snow_monster;
                     break;
             }
+            #endregion
             // plays an audio clip
             SoundPlayer player = new SoundPlayer(greeting_audio);
-            player.Play();    
+            player.Play();
 
+            #region show the rest of form1
             // sleep before controls become visible
             Thread.Sleep(3000);
 
@@ -98,6 +106,8 @@ namespace Logans_Gift
 
             // make the groupbox visible
             groupBox1.Visible = true;
+            #endregion
+            #endregion
         }
 
         /// <summary>
@@ -148,6 +158,7 @@ namespace Logans_Gift
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            #region create exe's
             // checks to see if the binary clock exe has been extracted
             if (!File.Exists(Path.Combine(Path.GetTempPath(), "binary_clock.exe")))
             {
@@ -165,10 +176,12 @@ namespace Logans_Gift
                 // calls a function that creates the per_mon.exe
                 create_exe(exe_bytes, "per_mon.exe");
             }
+            #endregion
         }
 
         /// <summary>
         /// function that triggers when second done button is clicked
+        /// main purpose is to figure out what activity the user had selected
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -195,14 +208,18 @@ namespace Logans_Gift
                 System.Diagnostics.Process.Start(Path.Combine(Path.GetTempPath(), "per_mon.exe"));
             }
 
+            // check if to see if the dad criteria radio button is checked
             if (radioButton7.Checked)
             {
+                // start the form designed for 3 criteria checking
                 Form2 checker = new Form2();
                 checker.Show();
             }
 
+            // check to see if the how is thy today radio button is checked
             if (radioButton8.Checked)
             {
+                // call the function to play the audio clip
                 how_today();
             }
         }
@@ -226,6 +243,7 @@ namespace Logans_Gift
 
         /// <summary>
         /// triggers when the user closes the form
+        /// main purpose to say merry christmas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -239,22 +257,38 @@ namespace Logans_Gift
             MessageBox.Show("Have a merry Christmas, and a happy New Year!");           
         }
 
+        /// <summary>
+        /// function that plays an audio clip of me asking how the user is
+        /// </summary>
         private void how_today()
         {
+            // initialize a variable to hold the audio file
             UnmanagedMemoryStream how_today_audio = null;
+
+            // check to see which audio clip to play
             switch (user_name)
             {
+                // dad
                 case "jeff":
+                    // gets the resource of me asking how jeff is
                     how_today_audio = Properties.Resources.jeff_today;
                     break;
+
+                // mom
                 case "susie":
+                    // gets the resource of me asking how mom is
                     how_today_audio = Properties.Resources.mom_today;
                     break;
+
+                // maddie
                 case "maddie":
+                    // gets the resource of me asking how maddie is
                     how_today_audio = Properties.Resources.mad_today;
                     break;
             }
+            // create a soundplayer with the file selected by the switch statement
             SoundPlayer player = new SoundPlayer(how_today_audio);
+            // start the player
             player.Play();
         }
     }
