@@ -20,6 +20,11 @@ namespace Logans_Gift
         // create a global speech synthesizer object
         static SpeechSynthesizer _synth = new SpeechSynthesizer();
 
+
+        static string user_name;
+
+        static Tuple<string, string> user_nick_names;
+
         public Form1()
         {
             InitializeComponent();
@@ -35,9 +40,6 @@ namespace Logans_Gift
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            // initialize a variable that holds the user's name
-            string user_name = "";
-
             // check to see if the jeff radio button is checkded
             if (radioButton1.Checked == true)
             {
@@ -60,7 +62,7 @@ namespace Logans_Gift
             }
 
             // create a tuple that holds the user's two nick names
-            Tuple<string, string> user_nick_names = get_nick_name(user_name);
+            user_nick_names = get_nick_name(user_name);
 
             // display the greeting in label 2
             label2.Text = string.Format("Hi, {0}. It's Snow Buddy!", user_nick_names.Item1);
@@ -198,6 +200,11 @@ namespace Logans_Gift
                 Form2 checker = new Form2();
                 checker.Show();
             }
+
+            if (radioButton8.Checked)
+            {
+                how_today();
+            }
         }
 
         /// <summary>
@@ -230,6 +237,25 @@ namespace Logans_Gift
 
             // display a message in a model box
             MessageBox.Show("Have a merry Christmas, and a happy New Year!");           
+        }
+
+        private void how_today()
+        {
+            UnmanagedMemoryStream how_today_audio = null;
+            switch (user_name)
+            {
+                case "jeff":
+                    how_today_audio = Properties.Resources.jeff_today;
+                    break;
+                case "susie":
+                    how_today_audio = Properties.Resources.mom_today;
+                    break;
+                case "maddie":
+                    how_today_audio = Properties.Resources.mad_today;
+                    break;
+            }
+            SoundPlayer player = new SoundPlayer(how_today_audio);
+            player.Play();
         }
     }
 }
