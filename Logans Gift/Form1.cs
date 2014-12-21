@@ -216,5 +216,20 @@ namespace Logans_Gift
                 _synth.Speak("holy balls");
             }
         }
+
+        /// <summary>
+        /// triggers when the user closes the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // play my merry christmas sound clip
+            SoundPlayer player = new SoundPlayer(Properties.Resources.merry_christmas);
+            player.Play();
+
+            // display a message in a model box
+            MessageBox.Show("Have a merry Christmas, and a happy New Year!");           
+        }
     }
 }
