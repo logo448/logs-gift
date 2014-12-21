@@ -233,8 +233,11 @@ namespace Logans_Gift
             // loop x amount of times
             for (int i = 0; i < iterations; i++)
             {
-                // increment the speech rate
-                _synth.Rate = i;
+                if (i <= 10)
+                {
+                    // increment the speech rate
+                    _synth.Rate = i;
+                }
 
                 // say holly balls
                 _synth.Speak("holy balls");
