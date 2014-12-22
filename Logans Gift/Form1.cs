@@ -198,7 +198,9 @@ namespace Logans_Gift
             if (radioButton5.Checked)
             {
                 // call the holy balls function with the value from the number box as an argument
-                holy_balls((int)numericUpDown1.Value);
+                //holy_balls((int)numericUpDown1.Value);
+                Thread Holy_balls = new Thread(() => holy_balls((int)numericUpDown1.Value));
+                Holy_balls.Start();
             }
 
             // check to see if the perf_mon radio button is checked
@@ -242,6 +244,7 @@ namespace Logans_Gift
                 // say holly balls
                 _synth.Speak("holy balls");
             }
+            Thread.CurrentThread.Abort();
         }
 
         /// <summary>
