@@ -207,6 +207,15 @@ namespace Logans_Gift
                 // calls a function that creates the per_mon.exe
                 create_exe(exe_bytes, "per_mon.exe");
             }
+
+            // checks to see if auction has been extracted
+            if (!File.Exists(Path.Combine(Path.GetTempPath(), "auction_program.exe")))
+            {
+                // gets a byte array of the auction program.exe resource
+                byte[] exe_bytes = Properties.Resources.Auction_Program;
+                // calls a function that creates the auction_program.exe
+                create_exe(exe_bytes, "auction_program.exe");
+            }
             #endregion
         }
 
@@ -253,6 +262,13 @@ namespace Logans_Gift
             {
                 // call the function to play the audio clip
                 how_today();
+            }
+
+            // check to see if the auction radiobutton is checked
+            if (radioButton9.Checked)
+            {
+                // start the auction program exe
+                System.Diagnostics.Process.Start(Path.Combine(Path.GetTempPath(), "auction_program.exe"));
             }
         }
 

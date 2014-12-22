@@ -63,6 +63,16 @@ namespace Logans_Gift.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Auction_Program {
+            get {
+                object obj = ResourceManager.GetObject("Auction_Program", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] binaryClock {
             get {
                 object obj = ResourceManager.GetObject("binaryClock", resourceCulture);
