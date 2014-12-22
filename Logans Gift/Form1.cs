@@ -23,9 +23,6 @@ namespace Logans_Gift
 
         // create a global variable that holds the name of the current user
         static string user_name;
-
-        // creates a tuple that holds the nick names of the current user
-        static Tuple<string, string> user_nick_names;
         #endregion
 
         public Form1()
@@ -66,7 +63,10 @@ namespace Logans_Gift
             #endregion
 
             // create a tuple that holds the user's two nick names
-            user_nick_names = get_nick_name(user_name);
+            Tuple<string, string> user_nick_names = get_nick_name(user_name);
+
+            // set the text on the how is ___ today with ____ blank being the current users mund name
+            radioButton8.Text = string.Format("How is {0} today?", user_nick_names.Item2);
 
             #region greeting
             // display the greeting in label 2
@@ -197,8 +197,7 @@ namespace Logans_Gift
             // check to see if the holy balls radio button is checked
             if (radioButton5.Checked)
             {
-                // call the holy balls function with the value from the number box as an argument
-                //holy_balls((int)numericUpDown1.Value);
+                // create and start a holly_balls thread
                 Thread Holy_balls = new Thread(() => holy_balls((int)numericUpDown1.Value));
                 Holy_balls.Start();
             }
@@ -244,6 +243,7 @@ namespace Logans_Gift
                 // say holly balls
                 _synth.Speak("holy balls");
             }
+            // close thread when done
             Thread.CurrentThread.Abort();
         }
 
