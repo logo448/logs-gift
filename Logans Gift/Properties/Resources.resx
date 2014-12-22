@@ -145,4 +145,13 @@
   <data name="mom_today" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mom today.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="me_bear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\me_bear.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="me_flapper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\me_flapper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="me_santa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\me_santa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

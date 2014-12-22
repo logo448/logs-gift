@@ -68,6 +68,37 @@ namespace Logans_Gift
             // set the text on the how is ___ today with ____ blank being the current users mund name
             radioButton8.Text = string.Format("How is {0} today?", user_nick_names.Item2);
 
+            #region picturebox
+            // initialize a variable to hold the img for the picturebox
+            Image img = null;
+
+            // check witch user
+            switch (user_name)
+            {
+                case "jeff":
+                    // set the img to me in my flapper hat
+                    img = Properties.Resources.me_flapper;
+                    break;
+                case "susie":
+                    // set the img to me in my santa hat
+                    img = Properties.Resources.me_santa;
+                    break;
+                case "maddie":
+                    // set the image to me in maddies bear hat
+                    img = Properties.Resources.me_bear;
+                    break;
+            }
+
+            // rotate the picture
+            img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+
+            // set the picture box image as img
+            pictureBox1.Image = img;
+
+            // set the picturebox size mode to zoom
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            #endregion
+
             #region greeting
             // display the greeting in label 2
             label2.Text = string.Format("Hi, {0}. It's Snow Buddy!", user_nick_names.Item1);
